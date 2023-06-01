@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Weekview from './Weekview';
-import Home from '../pages/Home';
-import Page404 from '../pages/Page404';
+import { Home, Page404, Weekview } from '../pages/';
+import { connect } from 'react-redux';
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.theme = 'light'
@@ -26,13 +25,15 @@ export default class App extends Component {
   }
 
   render() {
+    const { habits } = this.props;
+
     return (
       <BrowserRouter>
         <div className='App'>
           <Navbar theme={this.handleTheme} set={this.theme} />
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/week-view' element={<Weekview />} />
+            <Route path='/' element={<Home set={this.theme} habits={habits} dispatch={this.props.dispatch} />} />
+            <Route path='/week-view' element={<Weekview set={this.theme} habits={habits} />} />
             <Route path='*' element={<Page404 set={this.theme} />} />
           </Routes>
         </div>
@@ -40,4 +41,13 @@ export default class App extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    habits: state
+  }
+}
+
+const ConnectedAppComponent = connect(mapStateToProps)(App)
+export default ConnectedAppComponent
 
