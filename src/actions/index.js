@@ -2,6 +2,7 @@
 
 export const ADD_HABITS = 'ADD_HABITS'
 export const ADD_MUL_HABITS = 'ADD_MUL_HABITS'
+export const SET_HABITS = 'SET_HABITS'
 
 
 export function addHabits(habit) {
@@ -14,6 +15,13 @@ export function addHabits(habit) {
 export function addMulHabits(habits) {
     return {
         type: ADD_MUL_HABITS,
+        habits
+    }
+}
+
+export function changeStatus(habits) {
+    return {
+        type: SET_HABITS,
         habits
     }
 }

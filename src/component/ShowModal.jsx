@@ -34,8 +34,8 @@ const ShowModal = (props) => {
                 className={`w-6 p-0 h-6 absolute right-2 top-2 ${theme} ${theme === 'dark' ? 'btn_dark' : ''}`}
                 onClick={(e) => { e.preventDefault(); props.click() }}
             >X</button>
-            <input value={title} maxLength={25} required onChange={(e) => setTitle(e.target.value)} className='w-11/12 outline-none md:w-3/4 m-2 p-2 rounded-md' type='text' placeholder='Name of your habit' />
-            <textarea value={desc} required onChange={(e) => setDesc(e.target.value)} name='desc' className='w-11/12 outline-none resize-none md:w-3/4 m-2 p-2 rounded-md' type='text' placeholder='Short description' rows={4} />
+            <input value={title} maxLength={25} required onChange={(e) => setTitle(e.target.value)} className={`w-11/12 outline-none md:w-3/4 m-2 p-2 rounded-md ${theme === 'dark' ? 'bg-gray-600' : ''}`} type='text' placeholder='Name of your habit' />
+            <textarea value={desc} required onChange={(e) => setDesc(e.target.value)} name='desc' className={`w-11/12 outline-none resize-none md:w-3/4 m-2 p-2 rounded-md ${theme === 'dark' ? 'bg-gray-600' : ''}`} type='text' placeholder='Short description' rows={4} />
             <p>{message}</p>
             <button
                 className={`m-2 uppercase font-semibold w-20 ${theme} ${theme === 'dark' ? 'btn_dark' : ''}`}

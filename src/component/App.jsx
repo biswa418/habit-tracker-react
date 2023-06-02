@@ -33,7 +33,7 @@ class App extends Component {
           <Navbar theme={this.handleTheme} set={this.theme} />
           <Routes>
             <Route path='/' element={<Home set={this.theme} habits={habits} dispatch={this.props.dispatch} />} />
-            <Route path='/week-view' element={<Weekview set={this.theme} habits={habits} />} />
+            <Route path='/week-view' element={<Weekview set={this.theme} habits={habits} dispatch={this.props.dispatch} />} />
             <Route path='*' element={<Page404 set={this.theme} />} />
           </Routes>
         </div>
