@@ -8,7 +8,15 @@ import { changeStatus } from '../actions';
 
 const DefaultView = (props) => {
     const habits = props.habits;
-    const habit = props.habit;
+    const habit = props.habit[0];
+
+    if (!habit)
+        return (
+            <h2 className='mt-4 p-4 text-slate-400'>
+                Nothing to show! Click on the habit to see..
+            </h2>
+        )
+
     const theme = props.theme;
     const day = new Date();
     const possibleStatus = ['none', 'done', 'notDone'];
@@ -40,7 +48,7 @@ const DefaultView = (props) => {
 
     return (
         <div className='flex w-full justify-center'>
-            <ul className='gap-3 w-11/12 md:w-2/3 mt-2 md:mt-5 h-full overflow-x-hidden overflow-y-auto'>
+            <ul className='gap-3 w-full md:w-2/3 mt-2 md:mt-5 h-full overflow-x-hidden overflow-y-auto'>
                 <li key={habit.id} className={`min-w-[130px] w-full mb-16`}>
                     <div className={`p-4 m-2 mx-0 rounded-md flex justify-between items-center  ${theme === 'dark' ? 'bg-slate-600' : 'bg-slate-200'}`}>
 
@@ -69,7 +77,7 @@ const DefaultView = (props) => {
 
                             <p className='font-light text-xs'>
                                 {day.getDate() < 10 ? `0${day.getDate()}` : day.getDate()}
-                                /{day.getMonth() < 10 ? `0${day.getMonth()}` : day.getMonth()}
+                                /{day.getMonth() + 1 < 10 ? `0${day.getMonth() + 1}` : day.getMonth() + 1}
                             </p>
 
                             <p className='mt-3'>

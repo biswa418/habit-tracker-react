@@ -1,4 +1,4 @@
-import { ADD_HABITS, ADD_MUL_HABITS, SET_HABITS } from '../actions'
+import { ADD_HABITS, ADD_MUL_HABITS, DELETE_HABIT, SET_HABITS } from '../actions'
 import { intitialTrack } from '../helpers'
 
 const defaultState = [{
@@ -23,7 +23,7 @@ export function habits(state = [...defaultState], action) {
             return [
                 ...state,
                 {
-                    id: state.length,
+                    id: state[state.length - 1]['id'] + 1,
                     done: 0,
                     details: JSON.parse(JSON.stringify(intitialTrack)),
                     ...action.habit
@@ -39,6 +39,11 @@ export function habits(state = [...defaultState], action) {
         case SET_HABITS:
             return [
                 ...action.habits
+            ]
+
+        case DELETE_HABIT:
+            return [
+                ...state.filter((habit) => habit !== action.habit)
             ]
 
         default:

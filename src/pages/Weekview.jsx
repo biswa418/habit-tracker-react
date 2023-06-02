@@ -42,6 +42,22 @@ const Weekview = (props) => {
         nav('/')
     }
 
+    if (!habits || habits.length === 0)
+        return (
+            <div className='flex justify-center'>
+                <ul className='gap-3 w-11/12 md:w-2/3 mt-2 md:mt-5 h-full overflow-x-hidden overflow-y-auto'>
+
+                    <h2 className='mt-4 p-4 text-slate-400'>
+                        <button onClick={handleBack} className={`flex mb-4 items-center justify-around w-24 ${theme === 'dark' ? 'btn_dark' : ''}`}>
+                            <MdArrowBackIosNew className='text-slate-100 z-10' />
+                            Back
+                        </button>
+                        Nothing to show! Create your habits to track..
+                    </h2>
+                </ul>
+            </div>
+        )
+
     return (
         <div className='flex justify-center'>
             <ul className='gap-3 w-11/12 md:w-2/3 mt-2 md:mt-5 h-full overflow-x-hidden overflow-y-auto'>
@@ -87,7 +103,7 @@ const Weekview = (props) => {
 
                                                         <p className='font-light text-xs'>
                                                             {day.getDate() < 10 ? `0${day.getDate()}` : day.getDate()}
-                                                            /{day.getMonth() < 10 ? `0${day.getMonth()}` : day.getMonth()}
+                                                            /{day.getMonth() + 1 < 10 ? `0${day.getMonth() + 1}` : day.getMonth() + 1}
                                                         </p>
 
                                                         <p className='mt-3'>
