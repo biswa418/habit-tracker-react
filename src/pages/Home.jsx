@@ -64,7 +64,7 @@ class Home extends Component {
                         </h2>
                         <hr />
 
-                        <ul className='gap-3 mt-2 md:mt-5 h-[200px] overflow-x-hidden overflow-y-auto'>
+                        <ul className='gap-3 mt-2 md:mt-5 h-[200px] md:h-[400px] overflow-x-hidden overflow-y-auto'>
                             {
                                 habits.map((habit) => {
                                     return (
@@ -85,7 +85,7 @@ class Home extends Component {
 
                     <div className={`w-full md:w-3/5 m-0 md:ml-16 md:mt-2 ${showModal ? 'blur-sm' : ''}`}>
                         <div className='m-2 md:m-5 mx-0 flex flex-col'>
-                            <div className='flex text-xl mx-0 md:mx-12 items-center md:justify-around justify-between gap-10'>
+                            <div className='flex text-xl my-4 md:my-0 mx-0 md:mx-12 items-center md:justify-around justify-between gap-10'>
                                 Done for the day?
                                 <button
                                     className={`text-base p-4 flex items-center w-max uppercase font-semibold ${theme} ${theme === 'dark' ? 'btn_dark' : ''}`}

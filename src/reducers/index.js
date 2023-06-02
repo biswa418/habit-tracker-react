@@ -3,15 +3,15 @@ import { intitialTrack } from '../helpers'
 
 const defaultState = [{
     id: 0,
-    title: 'Swimming',
-    desc: 'Go for a swim',
+    title: 'Read a book',
+    desc: 'Go for 5 pages daily',
     done: 0,
     details: JSON.parse(JSON.stringify(intitialTrack))
 },
 {
     id: 1,
-    title: 'Running',
-    desc: 'Go for a run',
+    title: 'Cardio',
+    desc: 'Cardio session - 20 minutes',
     done: 0,
     details: JSON.parse(JSON.stringify(intitialTrack))
 }
